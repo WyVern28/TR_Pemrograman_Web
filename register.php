@@ -26,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $query = "INSERT INTO user (username, password, role) VALUES ('$username', '$hashed_password', 'tamu')";
 
             if (mysqli_query($conn, $query)) {
-                $success = 'Registrasi berhasil! Silakan login.';
+                $_SESSION['success'] = 'REGISTRASI BERHASIL! Silahkan login.';
+                header('Location: login.php');
+                exit();
             } else {
                 $error = 'Registrasi gagal: ' . mysqli_error($conn);
             }

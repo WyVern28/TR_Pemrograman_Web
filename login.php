@@ -3,6 +3,12 @@ session_start();
 include 'config/koneksi.php';
 
 $error = '';
+$success = '';
+
+if (isset($_SESSION['success'])) {
+    $success = $_SESSION['success'];
+    unset($_SESSION['success']);
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -45,6 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <h2>Login</h2>
+
+    <?php if ($success): ?>
+        <p style="color: green;"><?php echo $success; ?></p>
+    <?php endif; ?>
 
     <?php if ($error): ?>
         <p style="color: red;"><?php echo $error; ?></p>
