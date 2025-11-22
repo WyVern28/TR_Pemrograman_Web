@@ -24,6 +24,7 @@ $currentDateTime = date('H:i:s d/m/Y');
     <link rel="stylesheet" href="../../asset/css/kasir.css">
 </head>
 <body>
+    <sidebar>
     <div class="sidebar">
         <div class="sidebar-header">
             <h3>Hotel Kasir</h3>
@@ -45,7 +46,7 @@ $currentDateTime = date('H:i:s d/m/Y');
             <span><?php echo $_SESSION['username']; ?></span>
         </div>
     </div>
-
+    </sidebar>
     <div class="main-content">
         <h1>Online Order</h1>
 
