@@ -35,7 +35,7 @@ $currentDateTime = date('d-m-y');
             <ul class="sidebar-menu">
                 <li><a href="kasirPage.php" class="active">DASHBOARD</a></li>
                 <li><a href="OnlineOrder.php">ONLINE ORDER</a></li>
-                <li><a href="#">OTS ORDER</a></li>
+                <li><a href="otsOrder.php">OTS ORDER</a></li>
                 <li><a href="occupancy.php">OCCUPANCY</a></li>
                 <li><a href="kasirPage.php?logout=true">Logout</a></li>
             </ul>

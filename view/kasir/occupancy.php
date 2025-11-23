@@ -13,14 +13,14 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
-$currentDateTime = date('d-m-y');
+$currentDateTime = date('H:i:s d/m/Y');
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kasir Page - Hotel</title>
+    <title>Occupancy - Hotel</title>
     <link rel="stylesheet" href="../../asset/css/kasir.css">
 </head>
 <body>
@@ -33,10 +33,10 @@ $currentDateTime = date('d-m-y');
         <div class="sidebar-nav">
             <p>NAVIGASI</p>
             <ul class="sidebar-menu">
-                <li><a href="kasirPage.php" class="active">DASHBOARD</a></li>
+                <li><a href="kasirPage.php">DASHBOARD</a></li>
                 <li><a href="OnlineOrder.php">ONLINE ORDER</a></li>
-                <li><a href="#">OTS ORDER</a></li>
-                <li><a href="occupancy.php">OCCUPANCY</a></li>
+                <li><a href="otsOrder.php">OTS ORDER</a></li>
+                <li><a href="occupancy.php" class="active">OCCUPANCY</a></li>
                 <li><a href="kasirPage.php?logout=true">Logout</a></li>
             </ul>
         </div>
@@ -46,10 +46,70 @@ $currentDateTime = date('d-m-y');
             <span><?php echo $_SESSION['username']; ?></span>
         </div>
     </div>
+    </sidebar>
+
+    <div class="main-content">
+        <h1>Occupancy</h1>
+
+        <div class="section-title">TABEL OCCUPANCY KAMAR</div>
+
+        <div class="info-box">
+            <p>ID KASIR: </p>
+            <p>NAMA KASIR: <?php echo $_SESSION['username']; ?></p>
+            <p>STATUS: Aktif</p>
+        </div>
+
+        <div class="filter-container">
+            <button class="btn-filter">FILTER</button>
+            <button class="btn-filter">SEARCH</button>
+        </div>
+
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NO KAMAR</th>
+                    <th>NAMA CUSTOMER</th>
+                    <th>JENIS KAMAR</th>
+                    <th>TANGGAL CEK IN</th>
+                    <th>TANGGAL CEK OUT</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="status-occupied"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="status-available"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="status-occupied"></td>
+                </tr>
+            </tbody>
+        </table>
+
         <footer>
             Copyright &copy; Hotel <?php echo date('Y'); ?>
         </footer>
     </div>
-    </sidebar>
 </body>
 </html>
